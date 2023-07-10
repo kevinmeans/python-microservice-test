@@ -10,6 +10,7 @@ env:
   IMAGE_NAME: python-microservice-test
   COMMIT_SHA: ${{ github.sha }}
   HELM_REPO: kevinmeans/kuberentes-manifest
+  HELM_PATH: re
 
 jobs:
   # lint:
@@ -54,17 +55,18 @@ jobs:
     name: Replicate File
 
     steps:
-    - name: Checkout Project B
+    - name: Checkout ${{ env.HELM_REPO }}
       uses: actions/checkout@master
       with: 
         repository: ${{ env.HELM_REPO}}
-        token: ${{ secrets.ACTIONS_TOKEN }}
-        path: ./helm_tmp
-
+        token: ${{ secrets.ACTIONS_TOKEN}}
+    - name: Change Image Hash
+      run: |
+          sed -E -i 's/(newTag: )[[:alnum:]]+/\${{env.COMMIT_SHA}}/' ${{env.HELM_PATH}}
     - name: Commit and push changes
       uses: devops-infra/action-commit-push@master
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_TOKEN }}
         commit_message: Github Automation Tag Change
 
 
