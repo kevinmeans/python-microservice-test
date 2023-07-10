@@ -7,7 +7,7 @@ on:
 env:
   REGISTRY: docker.io
   DOCKER_USER: kevmeans
-  IMAGE_NAME: python-microservice-test
+  IMAGE_NAME: ${{ github.repository }}
   COMMIT_SHA: ${{ github.sha }}
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ env.DOCKER_USER }}/${ env.IMAGE_NAME }:${{ env.COMMIT_SHA }}
+          tags: ${{ env.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
 
 
 
