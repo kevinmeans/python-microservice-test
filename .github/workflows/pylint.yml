@@ -63,13 +63,15 @@ jobs:
     - name: Change Image Hash
       run: |
           sed -E -i 's/(newTag: )[[:alnum:]]+/\${{env.COMMIT_SHA}}/' ${{env.HELM_PATH}}
-    - name: Push Changes
+    - name: Commit Changes
       run: |
         git config user.name "GitHub Actions Bot"
+        git config --global user.email "botman@gmail.com"
         git add ${{env.HELM_PATH}}
         git commit -m "Bot Action"
         git push origin master
 
+    
       # - name: Update Version
       #     run: |
       #         git_hash=$(git rev-parse --short "$GITHUB_SHA")
