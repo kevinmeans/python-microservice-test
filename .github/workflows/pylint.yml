@@ -6,8 +6,8 @@ on:
       - main
 env:
   REGISTRY: docker.io
-  DOCKER_USER_SPACE: avbdasljfdkjl
-  IMAGE_NAME: ${{ github.repository }}
+  DOCKER_USER_SPACE: kevmeans
+  IMAGE_NAME: python-microservice-test
   COMMIT_SHA: ${{ github.sha }}
 
 jobs:
@@ -47,4 +47,3 @@ jobs:
         with:
           push: true
           tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
-          #tags: kevmeans/python-tesfgma:u13wo89r128u91r8u1r8901ur
