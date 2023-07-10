@@ -46,7 +46,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{ env.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
+          #tags: ${{ env.DOCKER_USER }}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
+          tags: kevmeans/python-microservice-test:123
 
 
 
