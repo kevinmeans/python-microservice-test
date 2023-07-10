@@ -69,7 +69,7 @@ jobs:
         git config --global user.email "botman@gmail.com"
         git add ${{env.HELM_PATH}}
         git commit -m "Bot Action"
-        git push origin master
+        git push origin main
 
     
       # - name: Update Version
