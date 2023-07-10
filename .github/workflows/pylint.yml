@@ -10,7 +10,7 @@ env:
   IMAGE_NAME: python-microservice-test
   COMMIT_SHA: ${{ github.sha }}
   HELM_REPO: kevinmeans/kuberentes-manifest
-  HELM_PATH: k8-manifest/overlays/dev/kustomization.yaml
+  HELM_PATH: overlays/dev/kustomization.yaml
 
 jobs:
   # lint:
@@ -55,7 +55,7 @@ jobs:
     name: Replicate File
 
     steps:
-    - name: Checkout ${{ env.HELM_REPO }}
+    - name: Checkout Helm Repo
       uses: actions/checkout@master
       with: 
         repository: ${{ env.HELM_REPO}}
