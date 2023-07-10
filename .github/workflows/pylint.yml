@@ -63,13 +63,12 @@ jobs:
     - name: Change Image Hash
       run: |
           sed -E -i 's/(newTag: )[[:alnum:]]+/\${{env.COMMIT_SHA}}/' ${{env.HELM_PATH}}
-    - name: Commit and push changes
-      uses: devops-infra/action-commit-push@master
-      with:
-        github_token: ${{ secrets.ACTIONS_TOKEN }}
-        commit_message: Github Automation Tag Change
-
-
+    - name: Push Changes
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git add ${{env.HELM_PATH}}
+        git commit -m "Bot Action"
+        git push origin master
 
       # - name: Update Version
       #     run: |
