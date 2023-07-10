@@ -6,7 +6,7 @@ on:
       - main
 env:
   REGISTRY: docker.io
-  DOCKER_USER_SPACE: kevmeans
+  DOCKER_USER_SPACE: avbdasljfdkjl
   IMAGE_NAME: ${{ github.repository }}
   COMMIT_SHA: ${{ github.sha }}
 
@@ -47,3 +47,4 @@ jobs:
         with:
           push: true
           tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
+          #tags: kevmeans/python-tesfgma:u13wo89r128u91r8u1r8901ur
