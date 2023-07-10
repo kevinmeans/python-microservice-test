@@ -1,6 +1,9 @@
 name: Pylint
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -21,3 +24,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint -d C0116,E0401,C0114 $(git ls-files '*.py')
+      
