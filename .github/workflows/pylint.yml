@@ -10,7 +10,7 @@ env:
   IMAGE_NAME: python-microservice-test
   COMMIT_SHA: ${{ github.sha }}
   HELM_REPO: kevinmeans/kuberentes-manifest
-  HELM_PATH: re
+  HELM_PATH: k8-manifest/overlays/dev/kustomization.yaml
 
 jobs:
   # lint:
