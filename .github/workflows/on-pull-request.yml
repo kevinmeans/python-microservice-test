@@ -8,7 +8,7 @@ env:
   REGISTRY: docker.io
   DOCKER_USER_SPACE: kevmeans
   IMAGE_NAME: python-microservice-test
-  COMMIT_SHA: ${{ github.sha }}
+  PR_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
   HELM_REPO: kevinmeans/kuberentes-manifest
   HELM_PATH: overlays/dev/kustomization.yaml
   
@@ -50,5 +50,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
+          tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ env.PR_COMMIT_SHA }}
 
