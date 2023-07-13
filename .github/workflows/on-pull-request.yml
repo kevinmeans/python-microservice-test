@@ -1,5 +1,4 @@
-name: Preview environment deployment to ArgoCD pipeline
-
+name: On Pull Actions
 on:  
   pull_request:
     branches:
