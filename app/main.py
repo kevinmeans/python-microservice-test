@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
-app1 = FastAPI()
+app = FastAPI()
 
 
-@app1.get("/")
+@app.get("/")
 def read_root():
     """
     Get endpoint for the root path.
