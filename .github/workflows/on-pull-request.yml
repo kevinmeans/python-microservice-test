@@ -49,7 +49,7 @@ jobs:
       - name: Test with pytest
         run: |
           pip install pytest 
-          pytest tests.py
+          pytest tests/*test*.py
   build-push:
     name: Build image and push to Dockerhub
     runs-on: ubuntu-latest
