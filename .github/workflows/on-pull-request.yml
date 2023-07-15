@@ -62,17 +62,11 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
-      - name: Set short git commit SHA
-        id: vars
-        run: |
-          calculatedSha=$(git rev-parse --short ${{ github.event.pull_request.head.sha }})
-          echo "::set-output name=short_sha::$calculatedSha"
       -
         name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.base.ref }}-${{ steps.vars.outputs.short_sha }}
-          
+          tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.base.ref }}-${{ env.PR_COMMIT_SHA }}
+
 
