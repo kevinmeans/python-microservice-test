@@ -67,6 +67,6 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.base.ref }}-${{ env.PR_COMMIT_SHA }}
+          tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.head.ref }}-${{ env.PR_COMMIT_SHA }}
 
 
