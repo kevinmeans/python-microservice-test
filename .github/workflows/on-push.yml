@@ -7,10 +7,10 @@ on:
 env:
   REGISTRY: docker.io
   DOCKER_USER_SPACE: kevmeans
-  IMAGE_NAME: python-microservice-test
+  IMAGE_NAME: python-microservice
   COMMIT_SHA: ${{ github.sha }}
   HELM_REPO: kevinmeans/kuberentes-manifest
-  HELM_PATH: overlays/dev/kustomization.yaml
+  HELM_PATH: helm-charts/python-microservice-app/environments/prod/values.yaml
   
 jobs:
   build-push:
@@ -43,7 +43,7 @@ jobs:
         token: ${{ secrets.ACTIONS_TOKEN}}
     - name: Change Image Hash
       run: |
-          sed -E -i 's/(newTag: )[[:alnum:]]+/\1${{env.COMMIT_SHA}}/' ${{env.HELM_PATH}}
+          sed -E -i 's/(version: )[[:alnum:]]+/\1${{env.COMMIT_SHA}}/' ${{env.HELM_PATH}}
     - name: Commit Changes
       run: |
         git config user.name "GitHub Actions Bot"
