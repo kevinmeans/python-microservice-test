@@ -2,10 +2,10 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-#
+
 @app.get("/")
 def read_root():
     """
     Get endpoint for the root path.
     """
-    return {"GoodBYE": "World"}
+    return {"Hello": "Everyone!"}
