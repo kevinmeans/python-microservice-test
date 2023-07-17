@@ -8,4 +8,4 @@ def read_root():
     """
     Get endpoint for the root path.
     """
-    return {"Hello": "Everyone!"}
+    return {"Goodbye": "Everyone!"}
