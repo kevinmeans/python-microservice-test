@@ -14,7 +14,7 @@ env:
 jobs:
   lint:
       name: Lint
-      runs-on: ubuntu-latest
+      runs-on: km-self-runner
       strategy:
         matrix:
           python-version: ["3.10"]
@@ -34,7 +34,7 @@ jobs:
         continue-on-error: true
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: km-self-runner
     steps:
       - uses: actions/checkout@v3
       - name: Set up Python
@@ -51,7 +51,7 @@ jobs:
           pytest tests/*test*.py
   build-push:
     name: Build image and push to Dockerhub
-    runs-on: ubuntu-latest
+    runs-on: km-self-runner
     steps:
       -
         name: Set up Docker Buildx
