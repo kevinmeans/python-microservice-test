@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  REGISTRY: docker.io
+  REGISTRY: localhost:5000
   DOCKER_USER_SPACE: kevmeans
   IMAGE_NAME: python-microservice
   PR_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
