@@ -68,7 +68,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.head.ref }}-${{ env.PR_COMMIT_SHA }}
+          tags: ${{ env.REGISTRY}}/${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ github.event.pull_request.head.ref }}-${{ env.PR_COMMIT_SHA }}
           cache-from: type=registry,ref=${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:buildcache
           cache-to: type=registry,ref=${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:buildcache,mode=max
 
