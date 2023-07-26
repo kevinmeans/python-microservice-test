@@ -15,7 +15,7 @@ env:
 jobs:
   build-push:
     name: Build image and push to Dockerhub
-    runs-on: ubuntu-latest
+    runs-on: km-self-runner
     steps:
       -
         name: Set up Docker Buildx
@@ -33,7 +33,7 @@ jobs:
           push: true
           tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
   edit-tag:
-    runs-on: ubuntu-latest
+    runs-on: km-self-runner
     name: Change image tag in helm repository
     steps:
     - name: Checkout Helm Repo
