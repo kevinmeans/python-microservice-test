@@ -7,7 +7,7 @@ client = TestClient(app)
 
 class Testing(unittest.TestCase):
     """
-    Main Sample testing class for FastAPI example
+    Main Sample testing clss for FastAPI example
     """
     def test_main_route(self):
         """

@@ -12,6 +12,7 @@ env:
   HELM_REPO: kevinmeans/kuberentes-manifest
   HELM_PATH: helm-charts/python-microservice-app/environments/prod/values.yaml
   
+  
 jobs:
   build-push:
     name: Build image and push to Dockerhub
@@ -51,4 +52,5 @@ jobs:
         git add ${{env.HELM_PATH}}
         git commit -m "Bot Action"
         git push origin main
+
 

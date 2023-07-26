@@ -6,6 +6,6 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     """
-    Get endpoint for the root path.
+    Get endpoint for the root path. 
     """
     return {"Goodbye": "Everyone!"}
