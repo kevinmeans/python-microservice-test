@@ -21,7 +21,7 @@ class Testing(unittest.TestCase):
         Simple test case to check if a Goodeye is returned
         """
         response = client.get("/")
-        self.assertEqual(response.json(), {"Goodbye": "Everyone!"})
+        self.assertEqual(response.json(), {"Hello": "World!"})
 
 
 if __name__ == '__main__':
