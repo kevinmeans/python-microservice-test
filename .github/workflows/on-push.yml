@@ -15,7 +15,7 @@ env:
 jobs:
   build-push:
     name: Build image and push to Dockerhub
-    runs-on: km-self-runner
+    runs-on: ubuntu-latest
     steps:
       -
         name: Set up Docker Buildx
