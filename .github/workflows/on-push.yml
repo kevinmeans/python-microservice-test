@@ -33,7 +33,7 @@ jobs:
           push: true
           tags: ${{env.DOCKER_USER_SPACE}}/${{ env.IMAGE_NAME }}:${{ env.COMMIT_SHA }}
   edit-tag:
-    runs-on: km-self-runner
+    runs-on: ubuntu-latest
     name: Change image tag in helm repository
     steps:
     - name: Checkout Helm Repo
