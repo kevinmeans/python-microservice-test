@@ -2,7 +2,6 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-# File to test
 @app.get("/")
 def read_root():
     """
